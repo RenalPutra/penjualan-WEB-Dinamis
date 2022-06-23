@@ -1,8 +1,12 @@
 <?php
-
+session_start();
 require(__DIR__.'/../vendor/autoload.php');
 require_once(__DIR__."/../config.php");
-
+if (!isset($_SESSION['login'])) {
+	$queryString =  $_SERVER['QUERY_STRING'];
+	header('Location: ../login.php'. $queryString);
+	exit();
+}
     $nama       = $_POST["nama_kategori"];
 
     $kategori = new kategori();

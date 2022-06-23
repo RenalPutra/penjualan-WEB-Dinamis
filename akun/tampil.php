@@ -1,8 +1,13 @@
 <?php 
+session_start();
 require(__DIR__.'/../vendor/autoload.php');
 require_once(__DIR__."/../config.php");
 require_once(__DIR__."/../fungsi.php");
-
+if (!isset($_SESSION['login'])) {
+	$queryString =  $_SERVER['QUERY_STRING'];
+	header('Location: ../login.php'. $queryString);
+	exit();
+}
 $data = akun::all();
 
 if(isset($_GET['hapus'])) {

@@ -1,11 +1,16 @@
 <?php
 session_start();
-if(!isset($_SESSION['login']) && $_SESSION['login'] == false){
-    header('location: login.php');
-}
+
 require(__DIR__.'/vendor/autoload.php');
 require_once(__DIR__."/config.php");
+$loader = new \Twig\Loader\FilesystemLoader(__DIR__.'/template');
+$twig = new \Twig\Environment($loader);
 
+if (!isset($_SESSION['login'])) {
+	$queryString =  $_SERVER['QUERY_STRING'];
+	header('Location: login.php'. $queryString);
+	exit();
+}
 
 $pelanggan = pelanggan::count();
 $barang = barang::count();

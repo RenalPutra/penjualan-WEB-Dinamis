@@ -1,8 +1,12 @@
 <?php
-
+session_start();
 require(__DIR__.'/../vendor/autoload.php');
 require_once(__DIR__."/../config.php");
-
+if (!isset($_SESSION['login'])) {
+	$queryString =  $_SERVER['QUERY_STRING'];
+	header('Location: ../login.php'. $queryString);
+	exit();
+}
     $id_kategori  = $_POST["nama_kategori"];
     $nama_barang    = $_POST["nama_barang"];
     $harga_beli     = $_POST["harga_beli"];

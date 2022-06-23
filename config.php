@@ -27,7 +27,7 @@ $capsule->setAsGlobal();
 // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
 $capsule->bootEloquent();
 
-require_once("model.php");
+require("model.php");
 
 // adddddd session
 // session_start();
