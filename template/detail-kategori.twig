@@ -1,0 +1,35 @@
+{% extends "bootstrap.twig" %}
+
+{% block konten %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALAMAN DETAIL KATEGORI</title>
+</head>
+<body>
+<div class="container col-6 mt-5">
+    <h1 class="text-center">HALAMAN DETAIL KATEGORI</h1>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr class="text-center">
+                <th>NAMA KATEGORI</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center">
+                <td>{{kategori.nama_kategori}}</td>
+            </tr>
+            <?php $no = 1 ?>
+        </tbody>
+    </table>
+    <br>
+    <a href="tampil.php" class="btn btn-primary mb-2 mt-2">KEMBALI</a>
+</div>
+</body>
+</html>
+
+{% endblock %}

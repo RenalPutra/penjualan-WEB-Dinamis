@@ -1,0 +1,82 @@
+{% extends "bootstrap.twig" %}
+
+{% block konten %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATA BARANG</title>
+</head>
+<body>
+    <!-- {# nav #} -->
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container-fluid">
+                <img style="width:100px; height:30px; margin-left:20px;" src="../asset/img/logo.png">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <button class="btn btn-dark mt-2" style="width: 170px; margin-left:130px;">
+                            <a class="nav-link active text-light" aria-current="page" href="../pelanggan/tampil.php">Pelanggan</a>
+                        </button>                            
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-dark mt-2" style="width: 170px; margin-left:10px;">
+                            <a class="nav-link text-light" href="../kategori/tampil.php">Kategori</a>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-dark mt-2" style="width: 170px; margin-left:10px;">
+                            <a class="nav-link text-light" href="barang/tampil.php">Barang</a>
+                        </button>                        
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-dark mt-2" style="width: 170px; margin-left:10px;">
+                            <a class="nav-link text-light" href="../transaksi/tampil.php">Transaksi</a>
+                        </button>                        
+                    </li>
+                </ul>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            </div>
+        </nav>
+<div class="container mt-5">
+<h1 class="text-center">DATA BARANG</h1>
+    <a href="form.php" class="btn btn-primary mb-2 mt-2">+TAMBAH</a>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr class="text-center">
+                <th>#</th>
+                <th>NAMA KATEGORI</th>
+                <th>NAMA BARANG</th>
+                <th>HARGA BELI</th>
+                <th>KETERANGAN</th>
+                <th>STOK</th>
+                <th>AKSI</th>
+            </tr>
+        </thead>
+        <tbody>            
+            {% for data in barang %}
+                    <tr class="text-center">
+                    <td>{{data.id_barang}}</td>
+                    <td>{{data.kategori.nama_kategori}}</td>
+                    <td>{{data.nama_barang}}</td>
+                    <td>{{data.harga_beli}}</td>
+                    <td>{{data.keterangan}}</td>
+                    <td>{{data.stok}}</td>
+                    <td><a href="detail.php?id_barang={{data.id_barang}}" class="btn btn-warning">DETAIL</a> <a href="tampil.php?hapus={{data.id_barang}}" class="btn btn-danger">HAPUS</a> <a href="ubah.php?id_barang={{data.id_barang}}" class="btn btn-success">UBAH</a></td>
+                    </tr>
+                {% endfor %} 
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
+{% endblock %}

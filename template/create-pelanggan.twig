@@ -1,0 +1,35 @@
+{% extends "bootstrap.twig" %}
+
+{% block konten %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM INPUT PELANGGAN</title>
+</head>
+<body>
+<h1 class="text-center">HALAMAN INPUT PELANGGAN</h1>
+<div class="container col-md-6 mt-5 bg-dark rounded">
+    <form action="proses-pelanggan.php" method="post" class="row g-3">
+        <div class="mb-3">            
+            <label class="text-warning" for="">NAMA</label>
+            <input type="text" name="nama_pelanggan" class="form-control sm">
+        </div>
+        <div class="mb-3">            
+            <label class="text-warning" for="">TELEPON</label>
+            <input type="text" name="no_telp" class="form-control sm">
+        </div>
+        <div class="mb-3">            
+            <label class="text-warning" for="">ALAMAT</label>
+            <input type="text" name="alamat" class="form-control sm">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 mt-2 col-md-3 ">TAMBAH</button>
+    </form>
+</div>
+</body>
+</html>
+
+{% endblock %}

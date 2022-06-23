@@ -1,0 +1,58 @@
+{% extends "bootstrap.twig" %}
+
+{% block konten %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM INPUT BARANG</title>
+</head>
+<body>
+<div class="container col-md-6 mt-5 rounded">
+<h1 class="text-center">INPUT PENJUALAN</h1>
+    <form action="proses-barang.php" method="post" class="row g-3">
+        <label class="text-warning" for="">TANGGAL</label><br>
+        <div class="input-group mb-3">
+            <input type="date" name="tanggal" class="form-control ">
+            <span class="input-group-text">  </span>
+            <input type="text" class="form-control" placeholder="No Nota" name="kode_transaksi">
+        </div>
+        <div class="mb-3">            
+            <label class="text-warning" for="">PELANGGAN</label>
+            <select name="nama_pelanggan" class="form-control" id="">
+                <option value="">-- PELANGGAN --</option>
+                {% for data in pelanggan %}
+                    <option value="{{data.id_pelanggan}}">{{data.nama_pelanggan}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="text-warning" for="">NAMA BARANG</label>
+            <select name="nama_barang" class="form-control">
+                <option value="">-- BARANG --</option>
+                {% for data in barang %}
+                    <option data-price="{{data.id_barang}}" >{{data.nama_barang}}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">            
+            <label class="text-warning" for="">SATUAN</label>
+            <input type="number" name="{{data.harga_jual}}" class="form-control">
+        </div>
+        <div class="mb-3">            
+            <label class="text-warning" for="">QTY</label>
+            <input type="text-area" name="{{transaksi.qty}}" class="form-control">
+        </div>
+        <div class="mb-3">            
+            <label class="text-warning" for="">TOTAL</label>
+            <input type="number" name="total" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 mt-2 col-md-3 ">TAMBAH</button>
+    </form>
+</div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "bootstrap.twig" %}
+
+{% block konten %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM INPUT BARANG</title>
+</head>
+<body>
+<div class="container col-md-6 mt-5 rounded">
+    <form action="proses-barang.php" method="post" class="row g-3">
+        <div class="mb-3">            
+            <label class="text-warning" for="">KATEGORI</label>
+            <select name="nama_kategori" class="form-control" id="">
+                <option value="">-- PILIH KATEGORI --</option>
+                {% for data in kategori %}
+                    <option value="{{data.id_kategori}}">{{data.nama_kategori}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+           <label class="text-warning" for="">NAMA BARANG</label>
+           <input type="text" name="nama_barang" class="form-control">
+        </div>
+        <div class="mb-3">            
+            <label class="text-warning" for="">HARGA BELI</label>
+            <input type="number" name="harga_beli" class="form-control">
+        </div>
+        <div class="mb-3">            
+            <label class="text-warning" for="">KETERANGAN</label>
+            <input type="text-area" name="keterangan" class="form-control">
+        </div>
+        <div class="mb-3">            
+            <label class="text-warning" for="">STOK</label>
+            <input type="number" name="stok" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 mt-2 col-md-3 ">TAMBAH</button>
+    </form>
+</div>
+</body>
+</html>
+{% endblock %}

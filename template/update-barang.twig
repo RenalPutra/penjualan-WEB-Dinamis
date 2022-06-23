@@ -1,0 +1,46 @@
+{% extends "bootstrap.twig" %}
+
+{% block konten %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALAMAN UBAH BARANG</title>
+</head>
+<body>
+<div class="container col-md-6 mt-5 bg-dark rounded">
+    <form action="proses-ubah.php?id_barang={{barang.id_barang}}" method="post" class="row g-3">
+    <div class="mb-3">
+    <label class="text-warning" for="">KATEGORI</label>
+        <select name="nama_kategori" class="form-control" id="">
+            <option value="">-- PILIH KATEGORI --</option>
+            {% for data in kategori %}
+             <option value="{{data.id_kategori}}" {{ data.id_kategori }}>{{ data.nama_kategori }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="text-warning" for="">NAMA BARANG</label>
+        <input class="form-control" type="text" name="nama_barang" value="{{barang.nama_barang}}">
+    </div>
+    <div class="mb-3">
+        <label class="text-warning" for="">HARGA BELI</label>
+        <input class="form-control" type="text" name="harga_beli" value="{{barang.harga_beli}}">
+    </div>
+    <div class="mb-3">
+        <label class="text-warning" for="">KETERANGAN</label>
+        <input class="form-control" type="text" name="keterangan" value="{{barang.keterangan}}">
+    </div>
+    <div class="mb-3">
+        <label class="text-warning" for="">STOK</label>
+        <input class="form-control" type="text" name="stok" value="{{barang.stok}}">
+    </div>
+        <button type="submit" class="btn btn-primary mb-3 mt-2 col-md-3 ">Submit</button>
+    </form>
+</div>
+</body>
+</html>
+{% endblock %}

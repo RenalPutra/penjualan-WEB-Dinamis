@@ -1,0 +1,20 @@
+{
+    "name": "bulan/penjualan",
+    "description": "uts webdinamis",
+    "autoload": {
+        "psr-4": {
+            "Bulan\\Penjualan\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "blnscii",
+            "email": "bulansucicahayawati@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/database": "^9.17",
+        "illuminate/events": "^9.17",
+        "twig/twig": "^3.4"
+    }
+}
